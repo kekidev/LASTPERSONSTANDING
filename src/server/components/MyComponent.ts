@@ -7,10 +7,16 @@ import { CollectionService } from "@rbxts/services";
 })
 export class MyComponent extends BaseComponent implements OnStart {
 	onStart() {
-		print(`im attached to ${this.instance.GetFullName()}!`);
+		print(`${this.instance.Name} is created`);
+		this.instance.Name = (this.instance.Parent as BasePart).Name;
 		for (const obj of CollectionService.GetTagged("hello")) {
 			this.damage(obj as BasePart);
 		}
+	}
+
+	destroy() {
+		print(`${this.instance.Name} is deleted`);
+		super.destroy();
 	}
 
 	damage(part: BasePart) {
