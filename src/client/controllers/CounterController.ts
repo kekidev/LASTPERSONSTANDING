@@ -15,7 +15,7 @@ export class CountercController implements OnInit {
 		let handle: Roact.Tree;
 
 		StartCounter.Connect(() => {
-			handle = Roact.mount(Counter({ Second: 0 }), playerGui, "Test");
+			handle = Roact.mount(Counter({ Second: 0 }), playerGui, "Counter");
 
 			for (let i = 60; i > 0; i--) {
 				wait(1);
