@@ -22,7 +22,8 @@ export class GameService implements OnStart {
 		Players.PlayerAdded.Connect((plr) => {
 			plr.Team = Teams.FindFirstChild("Lobby") as Team;
 			if (Players.GetPlayers().size() < 2) {
-				NotEnough.SendToAllPlayers();
+				// NotEnough.SendToAllPlayers();
+				this.Intermission();
 			} else {
 				Enough.SendToAllPlayers();
 				this.Intermission();
